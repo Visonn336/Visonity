@@ -13,6 +13,7 @@
     --colorWhite: #FFFFFF;
     --colorBG: #1E1E1E;
     --colorBGDark: #111111;
+    --colorBGLight: #2e2e2e;
 
     /*//////////////////////////*/
     --transition: all 300ms ease;
@@ -235,7 +236,9 @@ img {
 }
 .featuredArticleAuthorInfo {
     display: inline-block;
-    position: fixed;
+    position: absolute;
+    height: 2.5rem;
+    width: 24rem;
     margin: 0.75rem;
 }
 
@@ -259,4 +262,63 @@ img {
 }
 .featuredArticleCategoryButton:hover {
     color: var(--colorWhite);
+}
+
+
+
+
+
+.article {
+    background: var(--colorBGLight);
+    border: 1rem solid var(--colorBGLight);
+}
+.articlesExtraMargin {
+    margin-top: 6rem;
+}
+.articlesContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    margin-bottom: 5rem;
+}
+.articleThumbnail {
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+
+.articleTopBar {
+    display: flex;
+    justify-content: space-between;
+}
+.articleAuthorBody {
+    display: flex;
+    gap: 1rem;
+}
+.articleAuthorAvatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--cardBorderRadius3);
+    overflow: hidden;
+}
+.articleAuthorInfo {
+    margin-top: 0.25rem;
+}
+.articleButtonsBody a {
+    background: var(--colorPrimary);
+    color: var(--colorGray-200);
+    padding: 0rem 0.5rem;
+    border-radius: var(--cardBorderRadius2);
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.5rem;
+    margin-left: 0.75rem;
+}
+.articleButtonsBody a:hover {
+    color: var(--colorWhite);
+}
+
+
+.articleBody {
+    margin-top: 1.2rem;
 }
