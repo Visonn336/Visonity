@@ -1,4 +1,4 @@
-# Visonity 1.05
+# Visonity 1.1
 
 
 ## Azərbaycanca
