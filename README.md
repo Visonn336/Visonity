@@ -1,14 +1,14 @@
-# Visonity 1.15
+# Visonity 1.2
 
 
 ## Azərbaycanca
-üst navigasiya paneli və sabitlənmiş məqalə hissəsi hazırlanıb.
- Maqalələr siyahısı hazırlandı, ancaq kodların səliqaya salınması və artıq hissələrdən təmizlənməsi lazımdır.
+Üst navigasiya paneli, sabitlənmiş məqalə hissəsi və məqalələr siyahısı hazırlanıb.
+ Kodlar səliqaya salındı və artıq hissələrdən təmizləndi
 
 ## Türkçe
-Üst navigasyon paneli ve sabitlenmiş makale kısmı yapıldı.
- Makaleler listesi yapıldı, ancak kodların düzene sokulması ve fazlalık kısımlardan temizlenmesi gerekiyor.
+Üst navigasyon paneli, sabitlenmiş makale kısmı ve makaleler listesi yapıldı.
+ Kodların düzene sokuldu ve fazlalık kısımlardan temizlendi.
 
 ## English
-The top navigation bar and fixed article section have been prepared.
- The article list has been created, but the code needs to be organized and unnecessary parts need to be removed.
+The top navigation bar, fixed article section, and article list have been created.
+ The code has been organized and unnecessary parts have been removed.

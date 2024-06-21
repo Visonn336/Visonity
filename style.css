@@ -166,6 +166,8 @@ img {
     position: relative;
     overflow: hidden;
     box-shadow: 0 0 2rem 1rem rgba(0, 0, 0, 0.4);
+    border-radius: var(--cardBorderRadius2);
+    overflow: hidden;
 }
 
 
@@ -268,10 +270,6 @@ img {
 
 
 
-.article {
-    background: var(--colorBGLight);
-    border: 1rem solid var(--colorBGLight);
-}
 .articlesExtraMargin {
     margin-top: 6rem;
 }
@@ -281,9 +279,19 @@ img {
     gap: 4rem;
     margin-bottom: 5rem;
 }
+.article {
+    background: var(--colorBGLight);
+    border: 1rem solid var(--colorBGLight);
+    margin-bottom: 4rem;
+    border-radius: var(--cardBorderRadius2);
+    box-shadow: 0 1rem 1rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+
 .articleThumbnail {
     overflow: hidden;
     margin-bottom: 1rem;
+    border-radius: var(--cardBorderRadius2) var(--cardBorderRadius2) 0 0;
 }
 
 
@@ -293,7 +301,7 @@ img {
 }
 .articleAuthorBody {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 .articleAuthorAvatar {
     width: 3rem;
@@ -304,6 +312,10 @@ img {
 .articleAuthorInfo {
     margin-top: 0.25rem;
 }
+.articleButtonsBody {
+    display: flex;
+    gap: 0.75rem;
+}
 .articleButtonsBody a {
     background: var(--colorPrimary);
     color: var(--colorGray-200);
@@ -312,7 +324,7 @@ img {
     text-align: center;
     font-weight: 900;
     font-size: 1.5rem;
-    margin-left: 0.75rem;
+    margin-bottom: 0.75rem;
 }
 .articleButtonsBody a:hover {
     color: var(--colorWhite);
