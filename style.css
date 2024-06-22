@@ -394,3 +394,82 @@ footer {
     border-top: 3px solid var(--colorBG);
     margin-top: 4rem;
 }
+
+
+
+
+
+.searchBar {
+    margin-top: 7rem;
+}
+.searchBarContainer {
+    position: relative;
+    width: 40rem;
+    background: var(--colorBGLight);
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: var(--cardBorderRadius2);
+    color: var(--colorGray-200);
+    flex-direction: row;
+    overflow: hidden;
+    box-shadow: 0 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+
+.searchBarContainer > div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.searchBar input {
+    background: transparent;
+    margin-left: 0.75rem;
+    padding: 0.5rem 0;
+    width: 100%;
+}
+.searchBar input::placeholder {
+    color: var(--colorGray-200);
+}
+
+
+.btn {
+    display: inline-block;
+    width: fit-content;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--colorPrimary);
+    color: var(--colorWhite);
+    border-radius: var(--cardBorderRadius2);
+    cursor: pointer;
+    transition: var(--transition);
+}
+.btn:hover {
+    background-color: var(--colorWhite);
+    color: var(--colorBG);
+}
+
+
+
+
+
+.aboutUsPage {
+    width: 80vh;
+    height: 40vh;
+    display: grid;
+    place-content: center;
+    margin: 0 auto;
+    margin-top: 10rem;
+    margin-bottom: 7.5rem;
+    text-align: center;
+}
+.helpPage {
+    width: 100vh;
+    height: 40vh;
+    display: grid;
+    place-content: center;
+    margin: 0 auto;
+    margin-top: 10rem;
+    margin-bottom: 7.5rem;
+    text-align: center;
+}

@@ -1,11 +1,11 @@
-# Visonity 1.3
+# Visonity 1.5
 
 
 ## Azərbaycanca
-Giriş hissənin Ön Üzü tamamlandı.
+Giriş, Kəşf et, Kömək və Haqqımızda hissələrinin Ön Üzləri tamamlandı.
 
 ## Türkçe
-Giriş kısmın Ön Yüzü tamamlandı.
+Giriş, Keşf et, Yardım ve Hakkımızda kısımlarının Ön Yüzleri tamamlandı.
 
 ## English
-The front-end of the entry section has been completed.
+The front-ends of the Entry, Discover, Help, and About sections have been completed.
