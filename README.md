@@ -1,11 +1,11 @@
-# Visonity 1.5
+# Visonity 1.6
 
 
 ## Azərbaycanca
-Giriş, Kəşf et, Kömək və Haqqımızda hissələrinin Ön Üzləri tamamlandı.
+Məqalə oxuma, Kateqoriyalara əsasən ayrılmış məqalələr hissəsi, Populyarlıq sıralaması, Hesab yaratma və Giriş etmə hissələrinin Ön Üzləri tamamlandı. Admin paneli əlavə olundu. Admin paneli vasitəsilə Məqalə, Yazar və Kateqoriya əlavə etmə hissələri daxil edildi.
 
 ## Türkçe
-Giriş, Keşf et, Yardım ve Hakkımızda kısımlarının Ön Yüzleri tamamlandı.
+Makale okuma, Kategorilere göre ayrılmış makaleler kısmı, Popülerlik sıralaması, Kayıt olma ve Giriş yapma kısımlarının Ön yüzleri tamamlandı. Admin paneli eklendi. Admin paneli ile Makale, Yazar ve Kategori ekleme kısımları eklendi.
 
 ## English
-The front-ends of the Entry, Discover, Help, and About sections have been completed.
+The front-ends of the article reading, category-based article sections, popularity ranking, account creation, and login sections have been completed. The admin panel has been added. With the admin panel, sections for adding articles, authors, and categories have been implemented.

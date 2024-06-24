@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visonity 3.6</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <div class="container navContainer">
+            <a href="home.html" class="navLogo">Visonity</a>
+            <ul class="navItems">
+                <li><a href="discover.html">Kəşf Et</a></li>
+                <li><a href="popular.html">Populyar</a></li>
+                <li><a href="help.html">Kömək</a></li>
+                <li><a href="aboutUs.html">Haqqımızda</a></li>
+                <li class="navProfile">
+                    <div class="avatar">
+                        <img src="images/avatar1.png">
+                    </div>
+                    <ul>
+                        <li><a href="dashboard.html">Profil</a></li>
+                        <li><a href="logout.html">Çıxış</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <section class="formSectionAdd">
+        <div class="container formSectionContainer">
+            <h2>Yazar Əlavə Et</h2>
+            <div class="alertMessage error">
+                <p>Bir problem yarandı</p>
+            </div>
+            <form action="">
+                <input type="text" placeholder="Ad">
+                <input type="text" placeholder="Soy Ad">
+                <input type="text" placeholder="İstifadəçi Adı">
+                <input type="password" placeholder="Şifrə Yarat">
+                <input type="password" placeholder="Şifrəni Təsdiqlə">
+                <select>
+                    <option value="0">Yazar</option>
+                    <option value="1">Admin</option>
+                </select>
+                <div class="formControl">
+                    <label for="formControl">Profil Şəkli</label>
+                    <input type="file" id="avatar">
+                </div>
+                <button type="submit" class="btn">Əlavə Et</button>
+            </form>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <div class="footerSocials">
+            <a href="https://github.com/Visonn336" target="_blank"><i class="uil uil-github"></i></a>
+            <a href="https://www.instagram.com/visonn336" target="_blank"><i class="uil uil-instagram-alt"></i></a>
+            <a href="https://x.com/Vison336" target="_blank"><i class="uil uil-twitter"></i></a>
+        </div>
+        <div class="footerCopyright">
+            <small>Copyright &copy; Visonity</small>
+        </div>
+    </footer>
+</body>
+</html>
