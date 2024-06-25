@@ -1,11 +1,11 @@
-# Visonity 1.675
+# Visonity 1.75
 
 
 ## Azərbaycanca
-Yazarları və Kateqoriyaları idarəetmə hissələri əlavə olundu. Yazarları, Məqalələri və Kateqoriyaları redaktə etmə hissələri əlavə olundu.
+Profil seyfesi xaric Ön Üz tamamlandı.
 
 ## Türkçe
-Yazarları ve Kategorileri kontrol etme kısımları eklendi. Yazarları, Makaleleri ve Kategorileri güncelleme kısımları eklendi.
+Profil sayfası hariç Ön Yüz tamamlandı.
 
 ## English
-Sections for controlling authors and categories have been added. Sections for updating authors, articles, and categories have been added.
+The front-end has been completed, except for the profile page.
