@@ -1,11 +1,11 @@
-# Visonity 1.75
+# Visonity 1.9
 
 
 ## Azərbaycanca
-Profil seyfesi xaric Ön Üz tamamlandı.
+Ön Üz tamamlandı.
 
 ## Türkçe
-Profil sayfası hariç Ön Yüz tamamlandı.
+Ön Yüz tamamlandı.
 
 ## English
-The front-end has been completed, except for the profile page.
+The front-end has been completed.
