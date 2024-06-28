@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visonity 3.6</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
@@ -29,7 +29,7 @@
                 <button type="submit" class="btn">Hesab Yarat</button>
                 <small>
                     Hazırda hesabın var?
-                    <a href="signIn.html">Giriş et</a>
+                    <a href="signIn.php">Giriş et</a>
                 </small>
             </form>
         </div>

@@ -2,31 +2,35 @@
 
 
 
-    <section class="featured">
-        <div class="container featuredContainer">
-            <div class="featuredArticleThumbnail">
-                <img src="images/blog3.jpg">
+    <section class="profilePage">
+        <div class="avatarProfilePage">
+            <img src="images/avatar1.png">
+        </div>
+    </section>
+
+    <section class="usernameProfilePage">
+        <h1><a href="authorProfile.php">Visonn336</a></h1>
+        <h2>Abbasov Polad</h2>
+    </section>
+
+    <section class="userInformationProfilePage">
+        <h2>I am just a autistic, my friendo!</h2>
+
+        <div class="numberOfArticles">
+            <h2>Paylaşılan Məqalə:</h2>
+            <h2>8</h2>
+        </div>
+
+        <div class="decimalBarProfilePage">
+            <i class="uil uil-angle-double-up"></i>
+            <h2>23</h2>
+
+            <div class="decimalBar">
+                <div class="upVote"></div>
             </div>
-            <div class="featuredArticleAuthorBody">
-                <div class="featuredArticleAuthorAvatar">
-                    <img src="images/avatar1.png">
-                </div>
-                <div class="featuredArticleAuthorInfo">
-                    <h5><a href="authorProfile.php">By: Plato Dostoyevski</a></h5>
-                    <small>23.05.2024 - 17:36</small>
-                </div>
-            </div>
-            <div class="featuredArticleButtonsBody">
-                <a href="upVote.php"><i class="uil uil-angle-double-up"></i></a>
-                <a href="downVote.php"><i class="uil uil-angle-double-down"></i></a>
-            </div>
-            <div class="featuredArticleBody">
-                <a href="categoryArticles.php" class="featuredArticleCategoryButton">Texnologiya</a>
-                <h2><a href="article.php">Lorem ipsum dolor sit amet consectetur.</a></h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, molestias quasi harum molestiae veniam exercitationem sunt reprehenderit beatae officiis quia facere quisquam inventore esse vitae nulla itaque et, placeat Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias, eveniet! Lorem ipsum dolor sit amet.
-                </p>
-            </div>
+
+            <h2>6</h2>
+            <i class="uil uil-angle-double-down"></i>
         </div>
     </section>
 
@@ -65,14 +69,6 @@
                 </div>
             </article>
 
-        </div>
-    </section>
-
-
-
-    <section class="categoryButtons">
-        <div class="container categoryButtonsContainer">
-            <a href="categoryArticles.php" class="featuredArticleCategoryButton articleCategoryButton">Kateqoriyasız</a>
         </div>
     </section>
 
