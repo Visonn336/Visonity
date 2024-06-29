@@ -1,5 +1,14 @@
 <?php
 require 'config/database.php';
+
+
+
+if (isset($_SESSION['userId'])) {
+    $id = filter_var($_SESSION['userId'], FILTER_SANITIZE_NUMBER_INT);
+    $query = "SELECT avatar FROM users WHERE id=$id";
+    $result = mysqli_query($connection, $query);
+    $avatar = mysqli_fetch_assoc($result);
+}
 ?>
 
 
@@ -23,16 +32,20 @@ require 'config/database.php';
                 <li><a href="<?= ROOT_URL ?>popular.php">Populyar</a></li>
                 <li><a href="<?= ROOT_URL ?>help.php">Kömək</a></li>
                 <li><a href="<?= ROOT_URL ?>aboutUs.php">Haqqımızda</a></li>
-                <li class="navProfile">
-                    <div class="avatar">
-                        <img src="images/avatar1.png">
-                    </div>
-                    <ul>
-                        <li><a href="<?= ROOT_URL ?>authorProfile.php">Profil</a></li>
-                        <li><a href="<?= ROOT_URL ?>admin/index.php">İdarə</a></li>
-                        <li><a href="<?= ROOT_URL ?>logout.php">Çıxış</a></li>
-                    </ul>
-                </li>
+                <?php if (isset($_SESSION['userId'])) : ?>
+                    <li class="navProfile">
+                        <div class="avatar">
+                            <img src="<?= ROOT_URL . 'images/' . $avatar['avatar'] ?>">
+                        </div>
+                        <ul>
+                            <li><a href="<?= ROOT_URL ?>authorProfile.php">Profil</a></li>
+                            <li><a href="<?= ROOT_URL ?>admin/index.php">İdarə</a></li>
+                            <li><a href="<?= ROOT_URL ?>logout.php">Çıxış</a></li>
+                        </ul>
+                    </li>
+                <?php else : ?>
+                    <li><a href="<?= ROOT_URL ?>signIn.php">Giriş et</a></li>
+                <?php endif ?>
             </ul>
         </div>
     </nav>

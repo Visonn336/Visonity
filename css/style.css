@@ -62,7 +62,7 @@ h4 {
 }
 
 body {
-    background: url(http://localhost/visonity%203.6/images/deneme4.png) repeat-y center top;
+    background: url(http://localhost/visonity%203.6/images/background.png) repeat-y center top;
     background-size: auto 57vw;
     font-family: "Montserrat", sans-serif;
     line-height: 1.6;
@@ -119,7 +119,7 @@ a {
     height: 2.5rem;
     border-radius: 50%;
     overflow: hidden;  /* Taşmaları gizler, Yoksa değişiklikler görünemez */
-    border: 0.3rem solid var(--colorBG);
+    border: 0.1rem solid var(--colorBG);
 }
 img {
     display: block;  /* Kendine ait satır oluşturur */

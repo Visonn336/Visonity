@@ -18,30 +18,32 @@
                             <h5>Məqaləni İdarə Et</h5>
                         </a>
                     </li>
-                    <li>
-                        <a href="addAuthor.php">
-                            <i class="uil uil-user-plus"></i>
-                            <h5>Yazar Əlavə Et</h5>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="manageAuthors.php">
-                            <i class="uil uil-users-alt"></i>
-                            <h5>Yazarı İdarə Et</h5>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="addCategory.php">
-                            <i class="uil uil-edit"></i>
-                            <h5>Kateqoriya Əlavə Et</h5>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="manageCategories.php">
-                            <i class="uil uil-list-ul"></i>
-                            <h5>Kateqoriyanı İdarə Et</h5>
-                        </a>
-                    </li>
+                    <?php if (isset($_SESSION['userIsAdmin'])) : ?>
+                        <li>
+                            <a href="addAuthor.php">
+                                <i class="uil uil-user-plus"></i>
+                                <h5>Yazar Əlavə Et</h5>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="manageAuthors.php">
+                                <i class="uil uil-users-alt"></i>
+                                <h5>Yazarı İdarə Et</h5>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="addCategory.php">
+                                <i class="uil uil-edit"></i>
+                                <h5>Kateqoriya Əlavə Et</h5>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="manageCategories.php">
+                                <i class="uil uil-list-ul"></i>
+                                <h5>Kateqoriyanı İdarə Et</h5>
+                            </a>
+                        </li>
+                    <?php endif ?>
                 </ul>
             </aside>
             <main>
