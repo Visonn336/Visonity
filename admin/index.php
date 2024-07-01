@@ -34,6 +34,21 @@ if ($user['is_admin'] == 1) {
                     </p>
                 </div>
 
+            <?php elseif (isset($_SESSION['editArticleSuccess'])): ?>
+                <div class="alertMessage success container">
+                    <p>
+                        <?= $_SESSION['editArticleSuccess'];
+                        unset($_SESSION['editArticleSuccess']); ?>
+                    </p>
+                </div>
+            <?php elseif (isset($_SESSION['editArticle'])): ?>
+                <div class="alertMessage error container">
+                    <p>
+                        <?= $_SESSION['editArticle'];
+                        unset($_SESSION['editArticle']); ?>
+                    </p>
+                </div>
+
             <?php endif ?>
         <div class="container dashboardContainer">
             <aside>

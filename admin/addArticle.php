@@ -34,7 +34,7 @@ $categories = mysqli_query($connection, $query);
                         <option value="<?= $category['id'] ?>"><?= $category['title'] ?></option>
                     <?php endwhile ?>
                 </select>
-                <textarea rows="10"  name="body" placeholder="Gövdə"><?= $body ?></textarea>
+                <textarea rows="10" name="body" placeholder="Gövdə"><?= $body ?></textarea>
                 <?php if (isset($_SESSION['userIsAdmin'])) : ?>
                     <div class="formControl inline">
                         <input type="checkbox" name="isFeatured" id="isFeatured">
