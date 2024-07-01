@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
                 $result = mysqli_query($connection, $query);
             }
             if (!mysqli_errno($connection)) {
-                $_SESSION['editAuthorSuccess'] = "Əməliyyat uğurla başa çatdı!";
+                $_SESSION['editAuthorSuccess'] = "$username İstifadəçisi uğurla redaktə olundu!";
             } else {
                 $_SESSION['editAuthor'] = "Təəssüf ki, İstifadəçi redaktə edilə bilmədi";
             }

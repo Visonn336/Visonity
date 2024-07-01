@@ -11,14 +11,47 @@ $users = mysqli_query($connection, $query);
 
 
     <section class="dashboard">
-        <?php if (isset($_SESSION['addAuthorSuccess'])): ?>
+
+            <?php if (isset($_SESSION['addAuthorSuccess'])): ?>
                 <div class="alertMessage success container">
                     <p>
                         <?= $_SESSION['addAuthorSuccess'];
                         unset($_SESSION['addAuthorSuccess']); ?>
                     </p>
                 </div>
+                
+            <?php elseif (isset($_SESSION['editAuthorSuccess'])): ?>
+                <div class="alertMessage success container">
+                    <p>
+                        <?= $_SESSION['editAuthorSuccess'];
+                        unset($_SESSION['editAuthorSuccess']); ?>
+                    </p>
+                </div>
+            <?php elseif (isset($_SESSION['editAuthor'])): ?>
+                <div class="alertMessage error container">
+                    <p>
+                        <?= $_SESSION['editAuthor'];
+                        unset($_SESSION['editAuthor']); ?>
+                    </p>
+                </div>
+
+            <?php elseif (isset($_SESSION['deleteAuthorSuccess'])): ?>
+                <div class="alertMessage success container">
+                    <p>
+                        <?= $_SESSION['deleteAuthorSuccess'];
+                        unset($_SESSION['deleteAuthorSuccess']); ?>
+                    </p>
+                </div>
+            <?php elseif (isset($_SESSION['deleteAuthor'])): ?>
+                <div class="alertMessage error container">
+                    <p>
+                        <?= $_SESSION['deleteAuthor'];
+                        unset($_SESSION['deleteAuthor']); ?>
+                    </p>
+                </div>
+            
             <?php endif ?>
+
         <div class="container dashboardContainer">
             <aside>
                 <ul>

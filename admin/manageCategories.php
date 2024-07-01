@@ -1,8 +1,54 @@
-<?php include 'partials/header.php'; ?>
+<?php
+include 'partials/header.php';
+
+
+
+$query = "SELECT * FROM categories ORDER BY title";
+$categories = mysqli_query($connection, $query);
+?>
 
 
 
     <section class="dashboard">
+            <?php if (isset($_SESSION['addCategorySuccess'])): ?>
+                <div class="alertMessage success container">
+                    <p>
+                        <?= $_SESSION['addCategorySuccess'];
+                        unset($_SESSION['addCategorySuccess']); ?>
+                    </p>
+                </div>
+
+            <?php elseif (isset($_SESSION['editCategorySuccess'])): ?>
+                <div class="alertMessage success container">
+                    <p>
+                        <?= $_SESSION['editCategorySuccess'];
+                        unset($_SESSION['editCategorySuccess']); ?>
+                    </p>
+                </div>
+            <?php elseif (isset($_SESSION['editCategory'])): ?>
+                <div class="alertMessage error container">
+                    <p>
+                        <?= $_SESSION['editCategory'];
+                        unset($_SESSION['editCategory']); ?>
+                    </p>
+                </div>
+
+            <?php elseif (isset($_SESSION['deleteCategorySuccess'])): ?>
+                <div class="alertMessage success container">
+                    <p>
+                        <?= $_SESSION['deleteCategorySuccess'];
+                        unset($_SESSION['deleteCategorySuccess']); ?>
+                    </p>
+                </div>
+            <?php elseif (isset($_SESSION['deleteCategory'])): ?>
+                <div class="alertMessage error container">
+                    <p>
+                        <?= $_SESSION['deleteCategory'];
+                        unset($_SESSION['deleteCategory']); ?>
+                    </p>
+                </div>
+
+            <?php endif ?>
         <div class="container dashboardContainer">
             <aside>
                 <ul>
@@ -57,15 +103,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><a href="<?= ROOT_URL ?>categoryArticles.php">Texnologiya</a></td>
-                            <td>
-                                <a href="editCategory.php" class="btn sm">Redaktə</a>
-                            </td>
-                            <td>
-                                <a href="deleteCategory.php" class="btn sm danger">Sil</a>
-                            </td>
-                        </tr>
+                        <?php while($category = mysqli_fetch_assoc($categories)) : ?>
+                            <tr>
+                                <td><a href="<?= ROOT_URL ?>categoryArticles.php"><?= $category['title'] ?></a></td>
+                                <td>
+                                    <a href="<?= ROOT_URL ?>admin/editCategory.php?id=<?= $category['id'] ?>" class="btn sm">Redaktə</a>
+                                </td>
+                                <td>
+                                    <a href="<?= ROOT_URL ?>admin/deleteCategory.php?id=<?= $category['id'] ?>" class="btn sm danger">Sil</a>
+                                </td>
+                            </tr>
+                        <?php endwhile ?>
                     </tbody>
                 </table>
             </main>

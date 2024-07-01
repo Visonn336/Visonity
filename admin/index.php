@@ -1,8 +1,40 @@
-<?php include 'partials/header.php'; ?>
+<?php
+include 'partials/header.php';
+
+
+
+$currentUserId = $_SESSION['userId'];
+$query = "SELECT * FROM users WHERE id=$currentUserId";
+$result = mysqli_query($connection, $query);
+$user = mysqli_fetch_assoc($result);
+
+if ($user['is_admin'] == 1) {
+    $adminId = $user['id'];
+    $adminArticlesQuery = "SELECT * FROM articles WHERE author_id=$adminId";
+    $adminArticles = mysqli_query($connection, $adminArticlesQuery);
+
+    $authorsArticlesQuery = "SELECT * FROM articles WHERE NOT author_id=$adminId ORDER BY author_id";
+    $authorsArticles = mysqli_query($connection, $authorsArticlesQuery);
+
+} else if ($user['is_admin'] == 0) {
+    $authorId = $user['id'];
+    $authorArticlesQuery = "SELECT * FROM articles WHERE author_id=$authorId";
+    $authorArticles = mysqli_query($connection, $authorArticlesQuery);
+}
+?>
 
 
 
     <section class="dashboard">
+            <?php if (isset($_SESSION['addArticleSuccess'])): ?>
+                <div class="alertMessage success container">
+                    <p>
+                        <?= $_SESSION['addArticleSuccess'];
+                        unset($_SESSION['addArticleSuccess']); ?>
+                    </p>
+                </div>
+
+            <?php endif ?>
         <div class="container dashboardContainer">
             <aside>
                 <ul>
@@ -52,22 +84,78 @@
                     <thead>
                         <tr>
                             <th>Başlıq</th>
+                            <th>Yazar</th>
                             <th>Kateqoriya</th>
                             <th>Redaktə</th>
                             <th>Sil</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><a href="<?= ROOT_URL ?>article.php">Lorem ipsum dolor sit amet consectetur.</a></td>
-                            <td>Texnologiya</td>
-                            <td>
-                                <a href="editArticle.php" class="btn sm">Redaktə</a>
-                            </td>
-                            <td>
-                                <a href="deleteArticle.php" class="btn sm danger">Sil</a>
-                            </td>
-                        </tr>
+                        <?php if($user['is_admin'] == 1) : ?>
+                            <?php while($article = mysqli_fetch_assoc($adminArticles)) : ?>
+                                <?php
+                                    $categoryId = $article['category_id'];
+                                    $categoryQuery = "SELECT title FROM categories WHERE id=$categoryId";
+                                    $categoryResult = mysqli_query($connection, $categoryQuery);
+                                    $category = mysqli_fetch_assoc($categoryResult);
+                                ?>
+                                <tr>
+                                    <td><a href="<?= ROOT_URL ?>article.php"><?= $article['title'] ?></a></td>
+                                    <td><a href="<?= ROOT_URL ?>authorProfile.php"><?= $user['username'] ?></a></td>
+                                    <td><?= $category['title'] ?></td>
+                                    <td>
+                                        <a href="<?= ROOT_URL ?>admin/editArticle.php?id=<?= $article['id'] ?>" class="btn sm">Redaktə</a>
+                                    </td>
+                                    <td>
+                                        <a href="<?= ROOT_URL ?>admin/deleteArticle.php?id=<?= $article['id'] ?>" class="btn sm danger">Sil</a>
+                                    </td>
+                                </tr>
+                            <?php endwhile ?>
+                            <?php while($article = mysqli_fetch_assoc($authorsArticles)) : ?>
+                                <?php
+                                    $categoryId = $article['category_id'];
+                                    $categoryQuery = "SELECT title FROM categories WHERE id=$categoryId";
+                                    $categoryResult = mysqli_query($connection, $categoryQuery);
+                                    $category = mysqli_fetch_assoc($categoryResult);
+
+                                    $authorId = $article['author_id'];
+                                    $authorQuery = "SELECT * FROM users WHERE id=$authorId";
+                                    $authorResult = mysqli_query($connection, $authorQuery);
+                                    $author = mysqli_fetch_assoc($authorResult)
+                                ?>
+                                <tr>
+                                    <td><a href="<?= ROOT_URL ?>article.php"><?= $article['title'] ?></a></td>
+                                    <td><a href="<?= ROOT_URL ?>authorProfile.php"><?= $author['username'] ?></a></td>
+                                    <td><?= $category['title'] ?></td>
+                                    <td>
+                                        <a href="<?= ROOT_URL ?>admin/editArticle.php?id=<?= $article['id'] ?>" class="btn sm">Redaktə</a>
+                                    </td>
+                                    <td>
+                                        <a href="<?= ROOT_URL ?>admin/deleteArticle.php?id=<?= $article['id'] ?>" class="btn sm danger">Sil</a>
+                                    </td>
+                                </tr>
+                            <?php endwhile ?>
+                        <?php elseif($user['is_admin'] == 0) : ?>
+                            <?php while($article = mysqli_fetch_assoc($authorArticles)) : ?>
+                                <?php
+                                    $categoryId = $article['category_id'];
+                                    $categoryQuery = "SELECT title FROM categories WHERE id=$categoryId";
+                                    $categoryResult = mysqli_query($connection, $categoryQuery);
+                                    $category = mysqli_fetch_assoc($categoryResult);
+                                ?>
+                                <tr>
+                                    <td><a href="<?= ROOT_URL ?>article.php"><?= $article['title'] ?></a></td>
+                                    <td><a href="<?= ROOT_URL ?>authorProfile.php"><?= $user['username'] ?></a></td>
+                                    <td><?= $category['title'] ?></td>
+                                    <td>
+                                        <a href="<?= ROOT_URL ?>admin/editArticle.php?id=<?= $article['id'] ?>" class="btn sm">Redaktə</a>
+                                    </td>
+                                    <td>
+                                        <a href="<?= ROOT_URL ?>admin/deleteArticle.php?id=<?= $article['id'] ?>" class="btn sm danger">Sil</a>
+                                    </td>
+                                </tr>
+                            <?php endwhile ?>
+                        <?php endif ?>
                     </tbody>
                 </table>
             </main>

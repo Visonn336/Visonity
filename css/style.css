@@ -2,10 +2,10 @@
     --colorPrimary: #6A0DAD;
     --colorPrimaryLight: rgba(106, 13, 173, 0.18);
 
-    --colorRed: #A52A2A;
+    --colorRed: #cf2c2c;
     --colorRedLight: rgba(165, 42, 42, 0.18);
-    --colorGreen: #23a850;
-    --colorGreenLight: rgba(35, 168, 80, 0.18);
+    --colorGreen: #2add66;
+    --colorGreenLight: rgba(35, 168, 80, 0.28);
 
     --colorGray900: #282828;
     --colorGray-200: #f2f2feb3;
@@ -656,7 +656,6 @@ input, textarea, select {
     background: var(--colorBGLight);
     padding: 2rem;
     margin-bottom: 4rem;
-    margin-top: 8rem;
     border-radius: var(--cardBorderRadius2);
     box-shadow: 0 0 1.5rem 1rem rgba(0, 0, 0, 0.2);
 }
