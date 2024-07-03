@@ -6,6 +6,8 @@ if (isset($_GET['search']) && isset($_GET['submit'])) {
     $query = "SELECT * FROM articles WHERE title LIKE '%$search%' ORDER BY date_time DESC";
     $articles = mysqli_query($connection, $query);
 
+    $currentUserId = $_SESSION['userId'];
+
 } else {
     header('location: ' . ROOT_URL . 'blog.php');
     die();
@@ -51,8 +53,23 @@ if (isset($_GET['search']) && isset($_GET['submit'])) {
                             </div>
                         </div>
                         <div class="articleButtonsBody">
-                            <a href="upVote.php"><i class="uil uil-angle-double-up"></i></a>
-                            <a href="downVote.php"><i class="uil uil-angle-double-down"></i></a>
+                            <?php
+                            $article_id = $article['id'];
+                            $upVoteQuery = "SELECT * FROM up_votes WHERE article_id=$article_id AND author_id=$currentUserId";
+                            $upVoteResult = mysqli_query($connection, $upVoteQuery);
+                            $downVoteQuery = "SELECT * FROM down_votes WHERE article_id=$article_id AND author_id=$currentUserId";
+                            $downVoteResult = mysqli_query($connection, $downVoteQuery);
+                            ?>
+                            <?php if (mysqli_num_rows($upVoteResult) == 0) : ?>
+                                <a href="<?= ROOT_URL ?>upVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-up"></i></a>
+                            <?php else : ?>
+                                <a href="<?= ROOT_URL ?>upVoteUndo.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-up"></i></a>
+                            <?php endif ?>
+                            <?php if (mysqli_num_rows($downVoteResult) == 0) : ?>
+                                <a href="<?= ROOT_URL ?>downVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-down"></i></a>
+                            <?php else : ?>
+                                <a href="<?= ROOT_URL ?>downVoteUndo.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-down"></i></a>
+                            <?php endif ?>
                         </div>
                     </div>
                     <div class="articleBody">

@@ -1,11 +1,11 @@
-# Visonity 2.9
+# Visonity 3.1
 
 
 ## Azərbaycanca
-Artıq istifadəçilər profil məlumatlarını dəyişə bilər, həmçinin "Haqqımda" hissəsi ilə özləri haqqında qısa məlumatlar verə bilərlər. UpVote və DownVote üçün database tərəfində Tablolar quruldu, kod hissəsində isə təməllər atıldı.
+Artıq məqalələrə upVote və downVote verə bilər, əlavə olaraq verdiyiniz upVote və downVote-ləri geri çəkə bilərsiniz. Aldığınız ümumi upVote və downVote sayısı profil səhifənizdə həm sayı olaraq, həm də vizual bar şəklində görünəcək.
 
 ## Türkçe
-Artık kullanıcılar profil bilgilerini değiştire bilir, ek olarak "Hakkımda" kısmı ile kendileri hakkında kısa bilgiler vere bilirler. UpVote ve DownVote için database tarafında Tablolar kuruldu, kod kısmında ise temeller atıldı.
+Artık makalelere upVote ve downVote vere bilir, ek olarak verdiğiniz upVote ve downVote'leri geri çeke bilirsiniz. Aldığınız Toplam upVote ve downVote sayısı profil sayfanızda hem sayı olarak, hemde Görsel Bar şeklinde gözükecek.  
 
 ## English
-Users can now edit their profile information, and additionally provide short details about themselves in the "About Me" section. Tables have been set up in the database for UpVote and DownVote, and foundational work has been laid in the code.
+You can now give upVotes and downVotes to articles, and additionally, you can retract the upVotes and downVotes you have given. The total number of upVotes and downVotes you have received will be displayed on your profile page both as a numerical count and as a visual bar.

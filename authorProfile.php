@@ -45,15 +45,39 @@ if (isset($_GET['id'])) {
         </div>
 
         <div class="decimalBarProfilePage">
+            <?php
+            $author_id = $author['id'];
+            $sumUpVotesQuery = "SELECT up_vote FROM articles WHERE author_id=$author_id";
+            $sumUpVotesResult = mysqli_query($connection, $sumUpVotesQuery);
+            $sumUpVote = 0;
+            ?>
+            <?php while($upVote = mysqli_fetch_assoc($sumUpVotesResult)) : ?>
+                <?php $sumUpVote += $upVote['up_vote'] ?>
+            <?php endwhile ?>
+
+            <?php
+            $sumDownVotesQuery = "SELECT down_vote FROM articles WHERE author_id=$author_id";
+            $sumDownVotesResult = mysqli_query($connection, $sumDownVotesQuery);
+            $sumDownVote = 0;
+            ?>
+            <?php while($downVote = mysqli_fetch_assoc($sumDownVotesResult)) : ?>
+                <?php $sumDownVote += $downVote['down_vote'] ?>
+            <?php endwhile ?>
+
+            <?php
+            $sumTotalVote = $sumUpVote + $sumDownVote;
+            $upVotePercent = $sumTotalVote > 0 ? ($sumUpVote / $sumTotalVote) * 100 : 0;
+            ?>
+
             <i class="uil uil-angle-double-up"></i>
-            <h2>23</h2>
+            <h2><?= $sumUpVote ?></h2>
 
             <div class="decimalBar">
-                <div class="upVote"></div>
+                <div class="upVote" style="width: <?= $upVotePercent ?>%;"></div>
             </div>
 
-            <h2>6</h2>
             <i class="uil uil-angle-double-down"></i>
+            <h2><?= $sumDownVote ?></h2>
         </div>
     </section>
 
@@ -87,8 +111,23 @@ if (isset($_GET['id'])) {
                                 </div>
                             </div>
                             <div class="articleButtonsBody">
-                                <a href="<?= ROOT_URL ?>upVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-up"></i></a>
-                                <a href="<?= ROOT_URL ?>downVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-down"></i></a>
+                                <?php
+                                $article_id = $article['id'];
+                                $upVoteQuery = "SELECT * FROM up_votes WHERE article_id=$article_id AND author_id=$currentUserId";
+                                $upVoteResult = mysqli_query($connection, $upVoteQuery);
+                                $downVoteQuery = "SELECT * FROM down_votes WHERE article_id=$article_id AND author_id=$currentUserId";
+                                $downVoteResult = mysqli_query($connection, $downVoteQuery);
+                                ?>
+                                <?php if (mysqli_num_rows($upVoteResult) == 0) : ?>
+                                    <a href="<?= ROOT_URL ?>upVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-up"></i></a>
+                                <?php else : ?>
+                                    <a href="<?= ROOT_URL ?>upVoteUndo.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-up"></i></a>
+                                <?php endif ?>
+                                <?php if (mysqli_num_rows($downVoteResult) == 0) : ?>
+                                    <a href="<?= ROOT_URL ?>downVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-down"></i></a>
+                                <?php else : ?>
+                                    <a href="<?= ROOT_URL ?>downVoteUndo.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-down"></i></a>
+                                <?php endif ?>
                             </div>
                         </div>
                         <div class="articleBody">
