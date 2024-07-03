@@ -289,7 +289,6 @@ section {
 .article {
     background: var(--colorBGLight);
     border: 1rem solid var(--colorBGLight);
-    margin-bottom: 4rem;
     border-radius: var(--cardBorderRadius2);
     box-shadow: 0 1rem 1rem 1rem rgba(0, 0, 0, 0.2);
 }
@@ -368,7 +367,8 @@ section {
 
 
 footer {
-    padding: 5rem 0 0;
+    margin-top: 11.4rem;
+    padding: 5rem 0 0rem;
     background: var(--colorBGLight);
     box-shadow: inset 0 1.5rem 1.5rem rgba(0, 0, 0, 0.2);
 }
@@ -872,4 +872,60 @@ border-radius: var(--cardBorderRadius2) var(--cardBorderRadius2) 0 0;
     font-size: 4rem;
     margin: 0;
     color: var(--colorWhite);
+}
+
+
+
+
+
+.navCategories {
+    position: relative;
+    cursor: pointer;
+}
+
+.navCategoriesHidden {
+    width: 100vw;
+    height: 3.6rem;
+    background: var(--colorGray900);
+    position: fixed;
+    top: 4.5rem;
+    left: 0;
+    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+    transition: var(--transition);
+    display: flex;
+    justify-content: center;
+}
+
+.navCategories ul {
+    position: absolute;  /* Parent öğeye göre konumlandırılır, ve diğer öğeleri etkilemez */
+    display: flex;
+    flex-direction: row;
+}
+
+.navCategories:hover > .navCategoriesHidden {
+    visibility: visible;
+    opacity: 1;
+}
+
+.navCategories ul li a {
+    display: block;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: var(--colorGray900);
+}
+
+
+
+
+
+.categoriesPage > h4 {
+    font-weight: 500;
+}
+.helpPage > h4 {
+    font-weight: 500;
+}
+.aboutUsPage > h4 {
+    font-weight: 500;
 }

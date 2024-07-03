@@ -111,7 +111,7 @@ $users = mysqli_query($connection, $query);
                         <?php while($user = mysqli_fetch_assoc($users)) : ?>
                             <tr>
                                 <td><?= $user['firstname'] ?></td>
-                                <td><a href="<?= ROOT_URL ?>authorProfile.php"><?= $user['username'] ?></a></td>
+                                <td><a href="<?= ROOT_URL ?>authorProfile.php?id=<?= $user['id'] ?>"><?= $user['username'] ?></a></td>
                                 <td>
                                     <a href="<?= ROOT_URL ?>admin/editAuthor.php?id=<?= $user['id'] ?>" class="btn sm">Redaktə</a>
                                 </td>

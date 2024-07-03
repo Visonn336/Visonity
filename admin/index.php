@@ -49,6 +49,21 @@ if ($user['is_admin'] == 1) {
                     </p>
                 </div>
 
+            <?php elseif (isset($_SESSION['deleteArticleSuccess'])): ?>
+                <div class="alertMessage success container">
+                    <p>
+                        <?= $_SESSION['deleteArticleSuccess'];
+                        unset($_SESSION['deleteArticleSuccess']); ?>
+                    </p>
+                </div>
+            <?php elseif (isset($_SESSION['deleteArticle'])): ?>
+                <div class="alertMessage error container">
+                    <p>
+                        <?= $_SESSION['deleteArticle'];
+                        unset($_SESSION['deleteArticle']); ?>
+                    </p>
+                </div>
+
             <?php endif ?>
         <div class="container dashboardContainer">
             <aside>
@@ -115,8 +130,8 @@ if ($user['is_admin'] == 1) {
                                     $category = mysqli_fetch_assoc($categoryResult);
                                 ?>
                                 <tr>
-                                    <td><a href="<?= ROOT_URL ?>article.php"><?= $article['title'] ?></a></td>
-                                    <td><a href="<?= ROOT_URL ?>authorProfile.php"><?= $user['username'] ?></a></td>
+                                    <td><a href="<?= ROOT_URL ?>article.php?id=<?= $article['id'] ?>"><?= $article['title'] ?></a></td>
+                                    <td><a href="<?= ROOT_URL ?>authorProfile.php?id=<?= $user['id'] ?>"><?= $user['username'] ?></a></td>
                                     <td><?= $category['title'] ?></td>
                                     <td>
                                         <a href="<?= ROOT_URL ?>admin/editArticle.php?id=<?= $article['id'] ?>" class="btn sm">Redaktə</a>
@@ -139,8 +154,8 @@ if ($user['is_admin'] == 1) {
                                     $author = mysqli_fetch_assoc($authorResult)
                                 ?>
                                 <tr>
-                                    <td><a href="<?= ROOT_URL ?>article.php"><?= $article['title'] ?></a></td>
-                                    <td><a href="<?= ROOT_URL ?>authorProfile.php"><?= $author['username'] ?></a></td>
+                                    <td><a href="<?= ROOT_URL ?>article.php?id=<?= $article['id'] ?>"><?= $article['title'] ?></a></td>
+                                    <td><a href="<?= ROOT_URL ?>authorProfile.php?id=<?= $author['id'] ?>"><?= $author['username'] ?></a></td>
                                     <td><?= $category['title'] ?></td>
                                     <td>
                                         <a href="<?= ROOT_URL ?>admin/editArticle.php?id=<?= $article['id'] ?>" class="btn sm">Redaktə</a>
@@ -159,8 +174,8 @@ if ($user['is_admin'] == 1) {
                                     $category = mysqli_fetch_assoc($categoryResult);
                                 ?>
                                 <tr>
-                                    <td><a href="<?= ROOT_URL ?>article.php"><?= $article['title'] ?></a></td>
-                                    <td><a href="<?= ROOT_URL ?>authorProfile.php"><?= $user['username'] ?></a></td>
+                                    <td><a href="<?= ROOT_URL ?>article.php?id=<?= $article['id'] ?>"><?= $article['title'] ?></a></td>
+                                    <td><a href="<?= ROOT_URL ?>authorProfile.php?id=<?= $user['id'] ?>"><?= $user['username'] ?></a></td>
                                     <td><?= $category['title'] ?></td>
                                     <td>
                                         <a href="<?= ROOT_URL ?>admin/editArticle.php?id=<?= $article['id'] ?>" class="btn sm">Redaktə</a>

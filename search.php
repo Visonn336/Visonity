@@ -1,35 +1,31 @@
 <?php
-include 'partials/header.php';
+require 'partials/header.php';
 
-
-
-if (isset($_GET['id'])) {
-    $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
-    $categoryQuery = "SELECT * FROM categories WHERE id=$id";
-    $categoryResult = mysqli_query($connection, $categoryQuery);
-    $category = mysqli_fetch_assoc($categoryResult);
-
-
-    $articlesQuery = "SELECT * FROM articles WHERE category_id=$id";
-    $articlesResult = mysqli_query($connection, $articlesQuery);
+if (isset($_GET['search']) && isset($_GET['submit'])) {
+    $search = filter_var($_GET['search'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $query = "SELECT * FROM articles WHERE title LIKE '%$search%' ORDER BY date_time DESC";
+    $articles = mysqli_query($connection, $query);
 
 } else {
-    header('location: ' . ROOT_URL . 'discover.php');
+    header('location: ' . ROOT_URL . 'blog.php');
+    die();
 }
 ?>
 
+<section class="searchBar">
+        <form action="<?= ROOT_URL ?>search.php" method="GET" class="container searchBarContainer">
+            <div>
+                <i class="uil uil-search"></i>
+                <input type="search" name="search" placeholder="Kəşf Et">
+            </div>
+            <button type="submit" name="submit" class="btn">Axtar</button>
+        </form>
+</section>
 
 
-    <section class="categoriesPage">
-        <h2><?= $category['title'] ?></h2>
-        <h4><?= $category['description'] ?></h4>
-    </section>
-
-
-
-    <section class="articles articlesExtraMargin">
-        <div class="container articlesContainer">
-        <?php while($article = mysqli_fetch_assoc($articlesResult)) : ?>
+<section class="articles articlesExtraMargin">
+    <div class="container articlesContainer">
+        <?php while($article = mysqli_fetch_assoc($articles)) : ?>
 
             <article class="article">
                 <div class="articleThumbnail">
@@ -60,15 +56,21 @@ if (isset($_GET['id'])) {
                         </div>
                     </div>
                     <div class="articleBody">
+                        <?php
+                        $categoryId = $article['category_id'];
+                        $categoryQuery = "SELECT * FROM categories WHERE id=$categoryId";
+                        $categoryResult = mysqli_query($connection, $categoryQuery);
+                        $category = mysqli_fetch_assoc($categoryResult);
+                        ?>
+                        <a href="<?= ROOT_URL ?>categoryArticles.php?id=<?= $category['id'] ?>" class="featuredArticleCategoryButton articleCategoryButton"><?= $category['title'] ?></a>
                         <h3><a href="<?= ROOT_URL ?>article.php?id=<?= $article['id'] ?>"><?= $article['title'] ?></a></h3>
                         <p><?= substr($article['body'], 0, 300) ?>...</p>
                     </div>
                 </div>
             </article>
+
         <?php endwhile ?>
-        </div>
-    </section>
+    </div>
+</section>
 
-
-
-<?php include 'partials/footer.php'; ?>
+<?php include 'partials/footer.php' ?>

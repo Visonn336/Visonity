@@ -5,9 +5,13 @@ require 'config/database.php';
 
 if (isset($_SESSION['userId'])) {
     $id = filter_var($_SESSION['userId'], FILTER_SANITIZE_NUMBER_INT);
-    $query = "SELECT avatar FROM users WHERE id=$id";
+    $query = "SELECT * FROM users WHERE id=$id";
     $result = mysqli_query($connection, $query);
-    $avatar = mysqli_fetch_assoc($result);
+    $author = mysqli_fetch_assoc($result);
+
+    /*$authorQuery = "SELECT * FROM users WHERE id=$id";
+    $authorResult = mysqli_query($connection, $authorQuery);
+    $author = mysqli_fetch_all($authorResult);*/
 }
 ?>
 
@@ -28,6 +32,20 @@ if (isset($_SESSION['userId'])) {
         <div class="container navContainer">
             <a href="<?= ROOT_URL ?>index.php" class="navLogo">Visonity</a>
             <ul class="navItems">
+                <?php
+                $categoriesQuery = "SELECT * FROM categories";
+                $categoriesResult = mysqli_query($connection, $categoriesQuery);
+                ?>
+                <li class="navCategories">
+                    <a href="">Kateqoriyalar</a>
+                    <div class="navCategoriesHidden">
+                        <ul>
+                            <?php while($category = mysqli_fetch_assoc($categoriesResult)) : ?>
+                                <li><a href="<?= ROOT_URL ?>categoryArticles.php?id=<?= $category['id'] ?>"><?= $category['title'] ?></a></li>
+                            <?php endwhile ?>
+                        </ul>
+                    </div>
+                </li>
                 <li><a href="<?= ROOT_URL ?>discover.php">Kəşf Et</a></li>
                 <li><a href="<?= ROOT_URL ?>popular.php">Populyar</a></li>
                 <li><a href="<?= ROOT_URL ?>help.php">Kömək</a></li>
@@ -35,10 +53,10 @@ if (isset($_SESSION['userId'])) {
                 <?php if (isset($_SESSION['userId'])) : ?>
                     <li class="navProfile">
                         <div class="avatar">
-                            <img src="<?= ROOT_URL . 'images/' . $avatar['avatar'] ?>">
+                            <img src="<?= ROOT_URL . 'images/' . $author['avatar'] ?>">
                         </div>
                         <ul>
-                            <li><a href="<?= ROOT_URL ?>authorProfile.php">Profil</a></li>
+                            <li><a href="<?= ROOT_URL ?>authorProfile.php?id=<?= $author['id'] ?>">Profil</a></li>
                             <li><a href="<?= ROOT_URL ?>admin/index.php">İdarə</a></li>
                             <li><a href="<?= ROOT_URL ?>logout.php">Çıxış</a></li>
                         </ul>

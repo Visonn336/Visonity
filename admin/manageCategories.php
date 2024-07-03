@@ -105,7 +105,7 @@ $categories = mysqli_query($connection, $query);
                     <tbody>
                         <?php while($category = mysqli_fetch_assoc($categories)) : ?>
                             <tr>
-                                <td><a href="<?= ROOT_URL ?>categoryArticles.php"><?= $category['title'] ?></a></td>
+                                <td><a href="<?= ROOT_URL ?>categoryArticles.php?id=<?= $category['id'] ?>"><?= $category['title'] ?></a></td>
                                 <td>
                                     <a href="<?= ROOT_URL ?>admin/editCategory.php?id=<?= $category['id'] ?>" class="btn sm">Redaktə</a>
                                 </td>

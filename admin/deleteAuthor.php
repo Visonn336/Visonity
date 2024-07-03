@@ -8,7 +8,6 @@ if (isset($_GET['id'])) {
     $result = mysqli_query($connection, $query);
     $user = mysqli_fetch_assoc($result);
 
-
     if (mysqli_num_rows($result) == 1) {
         $avatarName = $user['avatar'];
         $avatarPath = '../images/' . $avatarName;
@@ -17,9 +16,8 @@ if (isset($_GET['id'])) {
         }
     }
 
-
-
-
+    $query = "UPDATE articles SET author_id=0 WHERE author_id='$id'";
+    $result = mysqli_query($connection, $query);
 
     $deleteUserQuery = "DELETE FROM users WHERE id=$id";
     $deleteUserResult = mysqli_query($connection, $deleteUserQuery);

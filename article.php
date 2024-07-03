@@ -1,4 +1,19 @@
-<?php include 'partials/header.php'; ?>
+<?php
+include 'partials/header.php';
+
+
+
+if (isset($_GET['id'])) {
+    $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
+    $articlesQuery = "SELECT * FROM articles WHERE id=$id";
+    $articlesResult = mysqli_query($connection, $articlesQuery);
+    $article = mysqli_fetch_assoc($articlesResult);
+
+
+} else {
+    header('location: ' . ROOT_URL . 'discover.php');
+}
+?>
 
 
 
@@ -7,17 +22,25 @@
 
             <article class="article">
                 <div class="articleThumbnail">
-                    <img src="images/blog3.jpg">
+                    <img src="images/<?= $article['thumbnail'] ?>">
                 </div>
                 <div class="articleInfo">
                     <div class="articleTopBar">
                         <div class="articleAuthorBody">
+                            <?php
+                            $authorId = $article['author_id'];
+                            $authorQuery = "SELECT * FROM users WHERE id=$authorId";
+                            $authorResult = mysqli_query($connection, $authorQuery);
+                            $author = mysqli_fetch_assoc($authorResult);
+                            ?>
                             <div class="articleAuthorAvatar">
-                                <img src="images/avatar1.png">
+                                <img src="images/<?= $author['avatar'] ?>">
                             </div>
                             <div class="articleAuthorInfo">
-                                <h5><a href="authorProfile.php">By: Plato Dostoyevski</a></h5>
-                                <small>23.05.2024 - 17:36</small>
+                                <h5><a href="<?= ROOT_URL ?>authorProfile.php?id=<?= $author['id'] ?>"><?= $author['username'] ?></a></h5>
+                                <small>
+                                    <?= date("d.m.Y - H:i", strtotime($article['date_time'])) ?>
+                                </small>
                             </div>
                         </div>
                         <div class="articleButtonsBody">
@@ -26,11 +49,15 @@
                         </div>
                     </div>
                     <div class="articleBody">
-                        <a href="categoryArticles.php" class="featuredArticleCategoryButton articleCategoryButton">Texnologiya</a>
-                        <h3><a href="article.php">Lorem ipsum dolor sit amet consectetur.</a></h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, molestias quasi harum molestiae veniam exercitationem sunt reprehenderit beatae officiis quia facere quisquam inventore esse vitae nulla itaque et, placeat Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias, eveniet! Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa consequuntur dicta blanditiis dignissimos vitae quos tempore natus quam. Est maxime facilis ipsum sint impedit nobis architecto consequatur nihil blanditiis ad veritatis ullam, voluptatibus adipisci doloremque fuga, iure animi eum modi. Quis quas, quia fuga error suscipit nisi pariatur aut, tenetur quaerat nemo tempora delectus velit, voluptatum nam et. Deleniti neque aperiam enim labore facilis sunt consequatur animi quidem veritatis dolorum totam nostrum ullam iusto minus, eaque vel tenetur, aspernatur beatae ad vitae nobis error repellendus. Cupiditate in earum quae quidem accusantium vel mollitia unde nesciunt laboriosam incidunt! Veniam, pariatur fuga.
-                        </p>
+                        <?php
+                        $categoryId = $article['category_id'];
+                        $categoryQuery = "SELECT * FROM categories WHERE id=$categoryId";
+                        $categoryResult = mysqli_query($connection, $categoryQuery);
+                        $category = mysqli_fetch_assoc($categoryResult);
+                        ?>
+                        <a href="<?= ROOT_URL ?>categoryArticles.php?id=<?= $category['id'] ?>" class="featuredArticleCategoryButton articleCategoryButton"><?= $category['title'] ?></a>
+                        <h3><a href="<?= ROOT_URL ?>article.php?id=<?= $article['id'] ?>"><?= $article['title'] ?></a></h3>
+                        <p><?= $article['body'] ?></p>
                     </div>
                 </div>
             </article>
