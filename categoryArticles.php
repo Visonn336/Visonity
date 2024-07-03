@@ -13,6 +13,8 @@ if (isset($_GET['id'])) {
     $articlesQuery = "SELECT * FROM articles WHERE category_id=$id";
     $articlesResult = mysqli_query($connection, $articlesQuery);
 
+    $currentUserId = $_SESSION['userId'];
+
 } else {
     header('location: ' . ROOT_URL . 'discover.php');
 }
@@ -55,8 +57,8 @@ if (isset($_GET['id'])) {
                             </div>
                         </div>
                         <div class="articleButtonsBody">
-                            <a href="upVote.php"><i class="uil uil-angle-double-up"></i></a>
-                            <a href="downVote.php"><i class="uil uil-angle-double-down"></i></a>
+                            <a href="<?= ROOT_URL ?>upVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-up"></i></a>
+                            <a href="<?= ROOT_URL ?>downVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-down"></i></a>
                         </div>
                     </div>
                     <div class="articleBody">

@@ -1,6 +1,8 @@
 <?php
 include 'partials/header.php';
 
+$currentUserId = $_SESSION['userId'];
+
 
 
 if (isset($_GET['id'])) {
@@ -26,12 +28,16 @@ if (isset($_GET['id'])) {
     </section>
 
     <section class="usernameProfilePage">
-        <h1><a href="authorProfile.php"><?= $author['username'] ?></a></h1>
+        <?php if ($currentUserId == $author['id']) : ?>
+            <h1><a href="<?= ROOT_URL ?>authorProfileEdit.php?id=<?= $author['id'] ?>"><?= $author['username'] ?></a></h1>
+        <?php else : ?>
+            <h1><a href=""><?= $author['username'] ?></a></h1>
+        <?php endif ?>
         <h2><?= $author['lastname'] ?> <?= $author['firstname'] ?></h2>
     </section>
 
     <section class="userInformationProfilePage">
-        <h2>I am just a autistic, my friendo!</h2>
+        <h2><?= $author['about_me'] ?></h2>
 
         <div class="numberOfArticles">
             <h2>Paylaşılan Məqalə:</h2>
@@ -81,8 +87,8 @@ if (isset($_GET['id'])) {
                                 </div>
                             </div>
                             <div class="articleButtonsBody">
-                                <a href="upVote.php"><i class="uil uil-angle-double-up"></i></a>
-                                <a href="downVote.php"><i class="uil uil-angle-double-down"></i></a>
+                                <a href="<?= ROOT_URL ?>upVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-up"></i></a>
+                                <a href="<?= ROOT_URL ?>downVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-down"></i></a>
                             </div>
                         </div>
                         <div class="articleBody">

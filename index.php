@@ -9,6 +9,8 @@ $featured = mysqli_fetch_assoc($featuredResult);
 
 $articlesQuery = "SELECT * FROM articles ORDER BY date_time DESC";
 $articlesResult = mysqli_query($connection, $articlesQuery);
+
+$currentUserId = $_SESSION['userId'];
 ?>
 
 
@@ -36,8 +38,8 @@ $articlesResult = mysqli_query($connection, $articlesQuery);
                     </div>
                 </div>
                 <div class="featuredArticleButtonsBody">
-                    <a href="upVote.php"><i class="uil uil-angle-double-up"></i></a>
-                    <a href="downVote.php"><i class="uil uil-angle-double-down"></i></a>
+                    <a href="<?= ROOT_URL ?>upVote.php?article_id=<?= $featured['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-up"></i></a>
+                    <a href="<?= ROOT_URL ?>downVote.php?article_id=<?= $featured['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-down"></i></a>
                 </div>
                 <div class="featuredArticleBody">
                     <?php
@@ -84,8 +86,8 @@ $articlesResult = mysqli_query($connection, $articlesQuery);
                                 </div>
                             </div>
                             <div class="articleButtonsBody">
-                                <a href="upVote.php"><i class="uil uil-angle-double-up"></i></a>
-                                <a href="downVote.php"><i class="uil uil-angle-double-down"></i></a>
+                                <a href="<?= ROOT_URL ?>upVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-up"></i></a>
+                                <a href="<?= ROOT_URL ?>downVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-down"></i></a>
                             </div>
                         </div>
                         <div class="articleBody">
