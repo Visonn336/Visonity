@@ -1,11 +1,11 @@
-# Visonity 3.2
+# Visonity 3.3
 
 
 ## Azərbaycanca
-UpVote və downVote düymələrinin vizual hissələrini yaratmaq üçün təməllər atıldı. Saytda giriş etmədən gəzməyə mane olan bir problem həll edildi. Populyar kanalı tamamlandı, artıq ən çox upVote alan məqalələri bu kanaldan incələyə bilərsiniz.
+UpVote və downVote düymələrinin vizual hissələri tamamlandı. Artıq hansı məqaləyə səs verdiyinizi və məqalənin ümumi səs sayını asanlıqla görə bilərsiniz.
 
 ## Türkçe
-UpVote ve downVote butonlarının görsel kısımlarını yapmak için temeller atıldı. Giriş yapmadan sitede gezinmeye engel olan bir sorun giderildi. Popüler kanalı tamamlandı, artık en fazla upVote alan makaleleri bu kanaldan inceleye bilirsiniz.
+UpVote ve downVote butonlarının görsel kısımları tamamlandı, artık hangi makaleye oy verdiğinizi, ve makalenin toplam oy sayısını rahatca göre bilirsiniz.
 
 ## English
-The foundations were laid to create the visual parts of the upVote and downVote buttons. A problem that prevented browsing the site without logging in was resolved. The Popular channel was completed, and now you can review the articles with the most upVotes from this channel.
+The visual parts of the upVote and downVote buttons have been completed. Now you can easily see which article you voted for and the total vote count of the article.

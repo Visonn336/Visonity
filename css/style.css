@@ -1,6 +1,7 @@
 :root {
     --colorPrimary: #6A0DAD;
-    --colorPrimaryLight: rgba(106, 13, 173, 0.18);
+    --colorPrimaryLight: #9929e9;
+    /*--colorPrimaryLight: rgba(106, 13, 173, 0.18);*/
 
     --colorRed: #cf2c2c;
     --colorRedLight: rgba(165, 42, 42, 0.18);
@@ -213,16 +214,30 @@ section {
     position: absolute;
     top: 1rem;
     right: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    height: 2.5rem;
 }
 .featuredArticleButtonsBody a {
-    background: var(--colorPrimary);
+    background: var(--colorBG);
     color: var(--colorGray-200);
     padding: 0rem 0.125rem;
     border-radius: var(--cardBorderRadius2);
-    text-align: center;
+    display: flex;
+    align-items: center;
     font-weight: 900;
     font-size: 2.25rem;
     margin-left: 0.75rem;
+}
+.featuredArticleButtonsBody .buttonUndo {
+    background-color: var(--colorPrimary);
+    color: var(--colorGray-200);
+}
+.featuredArticleButtonsBody a span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-right: 0.75rem;
 }
 .featuredArticleButtonsBody a:hover {
     color: var(--colorWhite);
@@ -320,17 +335,29 @@ section {
 }
 .articleButtonsBody {
     display: flex;
+    flex-direction: row;
     gap: 0.75rem;
+    height: 3rem;
 }
 .articleButtonsBody a {
-    background: var(--colorPrimary);
+    background: var(--colorBG);
     color: var(--colorGray-200);
     padding: 0rem 0.5rem;
     border-radius: var(--cardBorderRadius2);
-    text-align: center;
+    display: flex;
+    align-items: center;
     font-weight: 900;
     font-size: 1.5rem;
     margin-bottom: 0.75rem;
+}
+.articleButtonsBody .buttonUndo {
+    background-color: var(--colorPrimary);
+    color: var(--colorGray-200);
+}
+.articleButtonsBody a span {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-right: 0.5rem;
 }
 .articleButtonsBody a:hover {
     color: var(--colorWhite);

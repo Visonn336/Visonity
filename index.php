@@ -47,14 +47,14 @@ $currentUserId = $_SESSION['userId'];
                         $downVoteResult = mysqli_query($connection, $downVoteQuery);
                         ?>
                         <?php if (mysqli_num_rows($upVoteResult) == 0) : ?>
-                            <a href="<?= ROOT_URL ?>upVote.php?article_id=<?= $featured['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-up"></i></a>
+                            <a href="<?= ROOT_URL ?>upVote.php?article_id=<?= $featured['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-up"></i><span><?= $featured['up_vote'] ?></span></a>
                         <?php else : ?>
-                            <a href="<?= ROOT_URL ?>upVoteUndo.php?article_id=<?= $featured['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-up"></i></a>
+                            <a href="<?= ROOT_URL ?>upVoteUndo.php?article_id=<?= $featured['id'] ?>&author_id=<?= $currentUserId ?>" class="buttonUndo"><i class="uil uil-angle-double-up"></i><span><?= $featured['up_vote'] ?></span></a>
                         <?php endif ?>
                         <?php if (mysqli_num_rows($downVoteResult) == 0) : ?>
-                            <a href="<?= ROOT_URL ?>downVote.php?article_id=<?= $featured['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-down"></i></a>
+                            <a href="<?= ROOT_URL ?>downVote.php?article_id=<?= $featured['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-down"></i><span><?= $featured['down_vote'] ?></span></a>
                         <?php else : ?>
-                            <a href="<?= ROOT_URL ?>downVoteUndo.php?article_id=<?= $featured['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-down"></i></a>
+                            <a href="<?= ROOT_URL ?>downVoteUndo.php?article_id=<?= $featured['id'] ?>&author_id=<?= $currentUserId ?>" class="buttonUndo"><i class="uil uil-angle-double-down"></i><span><?= $featured['down_vote'] ?></span></a>
                         <?php endif ?>
                     </div>
                 <?php endif ?>
@@ -112,14 +112,14 @@ $currentUserId = $_SESSION['userId'];
                                     $downVoteResult = mysqli_query($connection, $downVoteQuery);
                                     ?>
                                     <?php if (mysqli_num_rows($upVoteResult) == 0) : ?>
-                                        <a href="<?= ROOT_URL ?>upVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-up"></i></a>
+                                        <a href="<?= ROOT_URL ?>upVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-up"></i><span><?= $article['up_vote'] ?></span></a>
                                     <?php else : ?>
-                                        <a href="<?= ROOT_URL ?>upVoteUndo.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-up"></i></a>
+                                        <a href="<?= ROOT_URL ?>upVoteUndo.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>" class="buttonUndo"><i class="uil uil-angle-double-up"></i><span><?= $article['up_vote'] ?></span></a>
                                     <?php endif ?>
                                     <?php if (mysqli_num_rows($downVoteResult) == 0) : ?>
-                                        <a href="<?= ROOT_URL ?>downVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-down"></i></a>
+                                        <a href="<?= ROOT_URL ?>downVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-down"></i><span><?= $article['down_vote'] ?></span></a>
                                     <?php else : ?>
-                                        <a href="<?= ROOT_URL ?>downVoteUndo.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-down"></i></a>
+                                        <a href="<?= ROOT_URL ?>downVoteUndo.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>" class="buttonUndo"><i class="uil uil-angle-double-down"></i><span><?= $article['down_vote'] ?></span></a>
                                     <?php endif ?>
                                 </div>
                             <?php endif ?>
