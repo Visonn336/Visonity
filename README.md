@@ -1,11 +1,11 @@
-# Visonity 3.1
+# Visonity 3.2
 
 
 ## Azərbaycanca
-Artıq məqalələrə upVote və downVote verə bilər, əlavə olaraq verdiyiniz upVote və downVote-ləri geri çəkə bilərsiniz. Aldığınız ümumi upVote və downVote sayısı profil səhifənizdə həm sayı olaraq, həm də vizual bar şəklində görünəcək.
+UpVote və downVote düymələrinin vizual hissələrini yaratmaq üçün təməllər atıldı. Saytda giriş etmədən gəzməyə mane olan bir problem həll edildi. Populyar kanalı tamamlandı, artıq ən çox upVote alan məqalələri bu kanaldan incələyə bilərsiniz.
 
 ## Türkçe
-Artık makalelere upVote ve downVote vere bilir, ek olarak verdiğiniz upVote ve downVote'leri geri çeke bilirsiniz. Aldığınız Toplam upVote ve downVote sayısı profil sayfanızda hem sayı olarak, hemde Görsel Bar şeklinde gözükecek.  
+UpVote ve downVote butonlarının görsel kısımlarını yapmak için temeller atıldı. Giriş yapmadan sitede gezinmeye engel olan bir sorun giderildi. Popüler kanalı tamamlandı, artık en fazla upVote alan makaleleri bu kanaldan inceleye bilirsiniz.
 
 ## English
-You can now give upVotes and downVotes to articles, and additionally, you can retract the upVotes and downVotes you have given. The total number of upVotes and downVotes you have received will be displayed on your profile page both as a numerical count and as a visual bar.
+The foundations were laid to create the visual parts of the upVote and downVote buttons. A problem that prevented browsing the site without logging in was resolved. The Popular channel was completed, and now you can review the articles with the most upVotes from this channel.

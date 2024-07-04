@@ -45,25 +45,27 @@ if (isset($_GET['id'])) {
                                 </small>
                             </div>
                         </div>
-                        <div class="articleButtonsBody">
-                            <?php
-                            $article_id = $article['id'];
-                            $upVoteQuery = "SELECT * FROM up_votes WHERE article_id=$article_id AND author_id=$currentUserId";
-                            $upVoteResult = mysqli_query($connection, $upVoteQuery);
-                            $downVoteQuery = "SELECT * FROM down_votes WHERE article_id=$article_id AND author_id=$currentUserId";
-                            $downVoteResult = mysqli_query($connection, $downVoteQuery);
-                            ?>
-                            <?php if (mysqli_num_rows($upVoteResult) == 0) : ?>
-                                <a href="<?= ROOT_URL ?>upVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-up"></i></a>
-                            <?php else : ?>
-                                <a href="<?= ROOT_URL ?>upVoteUndo.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-up"></i></a>
-                            <?php endif ?>
-                            <?php if (mysqli_num_rows($downVoteResult) == 0) : ?>
-                                <a href="<?= ROOT_URL ?>downVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-down"></i></a>
-                            <?php else : ?>
-                                <a href="<?= ROOT_URL ?>downVoteUndo.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-down"></i></a>
-                            <?php endif ?>
-                        </div>
+                        <?php if ($currentUserId) : ?>
+                            <div class="articleButtonsBody">
+                                <?php
+                                $article_id = $article['id'];
+                                $upVoteQuery = "SELECT * FROM up_votes WHERE article_id=$article_id AND author_id=$currentUserId";
+                                $upVoteResult = mysqli_query($connection, $upVoteQuery);
+                                $downVoteQuery = "SELECT * FROM down_votes WHERE article_id=$article_id AND author_id=$currentUserId";
+                                $downVoteResult = mysqli_query($connection, $downVoteQuery);
+                                ?>
+                                <?php if (mysqli_num_rows($upVoteResult) == 0) : ?>
+                                    <a href="<?= ROOT_URL ?>upVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-up"></i></a>
+                                <?php else : ?>
+                                    <a href="<?= ROOT_URL ?>upVoteUndo.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-up"></i></a>
+                                <?php endif ?>
+                                <?php if (mysqli_num_rows($downVoteResult) == 0) : ?>
+                                    <a href="<?= ROOT_URL ?>downVote.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-down"></i></a>
+                                <?php else : ?>
+                                    <a href="<?= ROOT_URL ?>downVoteUndo.php?article_id=<?= $article['id'] ?>&author_id=<?= $currentUserId ?>"><i class="uil uil-angle-double-down"></i></a>
+                                <?php endif ?>
+                            </div>
+                        <?php endif ?>
                     </div>
                     <div class="articleBody">
                         <?php
