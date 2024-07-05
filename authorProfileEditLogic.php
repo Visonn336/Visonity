@@ -8,7 +8,6 @@ if (isset($_POST['submit'])) {
     $lastname = filter_var($_POST['lastname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $username = filter_var($_POST['username'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $about_me = filter_var($_POST['about_me'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $is_admin = filter_var($_POST['userRole'], FILTER_SANITIZE_NUMBER_INT);
 
     $password = filter_var($_POST['password'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
@@ -25,10 +24,10 @@ if (isset($_POST['submit'])) {
         } else {
             if ($password) {
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-                $query = "UPDATE users SET firstname='$firstname', lastname='$lastname', username='$username', about_me='$about_me', is_admin='$is_admin', password='$hashedPassword' WHERE id=$id LIMIT 1";
+                $query = "UPDATE users SET firstname='$firstname', lastname='$lastname', username='$username', about_me='$about_me', password='$hashedPassword' WHERE id=$id LIMIT 1";
                 $result = mysqli_query($connection, $query);
             } else if (!$password) {
-                $query = "UPDATE users SET firstname='$firstname', lastname='$lastname', username='$username', about_me='$about_me', is_admin='$is_admin' WHERE id=$id LIMIT 1";
+                $query = "UPDATE users SET firstname='$firstname', lastname='$lastname', username='$username', about_me='$about_me' WHERE id=$id LIMIT 1";
                 $result = mysqli_query($connection, $query);
             }
         }

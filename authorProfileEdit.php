@@ -26,10 +26,6 @@ if (isset($_GET['id'])) {
                 <input type="text" name="username" value="<?= $user['username'] ?>" placeholder="İstifadəçi Adı">
                 <input type="text" name="about_me" value="<?= $user['about_me'] ?>" placeholder="Haqqımda">
                 <input type="password" name="password" placeholder="Yeni şifrə">
-                <select name="userRole">
-                    <option value="0">Yazar</option>
-                    <option value="1">Admin</option>
-                </select>
                 <button type="submit" name="submit" class="btn">Redaktə Et</button>
             </form>
         </div>

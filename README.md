@@ -1,11 +1,11 @@
-# Visonity 3.3
+# Visonity 3.5
 
 
 ## Azərbaycanca
-UpVote və downVote düymələrinin vizual hissələri tamamlandı. Artıq hansı məqaləyə səs verdiyinizi və məqalənin ümumi səs sayını asanlıqla görə bilərsiniz.
+Səs vermə düymələrinə basdığınız zaman səhifənin yenilənmə problemləri JavaScript istifadə edərək həll edildi. Artıq Profil səhifəsindən profil şəklinizi dəyişə bilərsiniz.
 
 ## Türkçe
-UpVote ve downVote butonlarının görsel kısımları tamamlandı, artık hangi makaleye oy verdiğinizi, ve makalenin toplam oy sayısını rahatca göre bilirsiniz.
+Oy verme butonlarına basıldığı zaman sayfanın yenilenme sorunu çözüldü, bunun için JavaScript kullanıldı. Artık Profil sayfasından profil resminizi değiştire bilirsiniz.
 
 ## English
-The visual parts of the upVote and downVote buttons have been completed. Now you can easily see which article you voted for and the total vote count of the article.
+The issue of page refreshing when pressing the vote buttons has been resolved using JavaScript. Now you can change your profile picture from the Profile page.
