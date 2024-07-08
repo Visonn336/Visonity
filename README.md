@@ -1,8 +1,9 @@
-# Visonity 3.5
+# Visonity 3.6
 
 
 ## Azərbaycanca
-Səs vermə düymələrinə basdığınız zaman səhifənin yenilənmə problemləri JavaScript istifadə edərək həll edildi. Artıq Profil səhifəsindən profil şəklinizi dəyişə bilərsiniz.
+### giriş
+Visonity 3.6 - Məqalə paylaşmaq və oxumaq üçün web platforma. Siz burada müxtəlif kateqoriyalar haqqında məqalələr yaza bilər, vəya digər yazarların məqalələrini oxuya bilərsiniz. Lahiyədə HTML, CSS, JS, PHP, SQL kimi texnologiyalardan istifadə olunub. Lahiyə başda XAMPP ilə, sonradan isə Heroku ilə yayımlanmışdır.
 
 ## Türkçe
 Oy verme butonlarına basıldığı zaman sayfanın yenilenme sorunu çözüldü, bunun için JavaScript kullanıldı. Artık Profil sayfasından profil resminizi değiştire bilirsiniz.
