@@ -9,6 +9,8 @@ Visonity 3.6 - Məqalə paylaşmaq və oxumaq üçün web platforma. Siz burada 
 #### Giriş et
 ASHDGJKSDg ahJSDgjkah dgfakjsdfkajsdas
 
+djasvdjahsvj
+
 ## Türkçe
 Oy verme butonlarına basıldığı zaman sayfanın yenilenme sorunu çözüldü, bunun için JavaScript kullanıldı. Artık Profil sayfasından profil resminizi değiştire bilirsiniz.
 
